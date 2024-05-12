@@ -1,7 +1,7 @@
 {% set prefix = "spacy-model-" %}
 {% set lang = "pt" %}
 {% set name = lang + "_core_news" %}
-{% set version = "2.0.0" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ prefix }}{{ lang|lower }}
@@ -10,7 +10,7 @@ package:
 source:
   - folder: sm
     url: https://github.com/explosion/spacy-models/releases/download/{{ name }}_sm-{{ version }}/{{ name }}_sm-{{ version }}.tar.gz
-    sha256: 6f08ed518988e3d7b36c95c2df2ec4d63b4c6ec20b8aa15ee8160f371600e5e9
+    sha256: 61e29a91580b8095017764490b1368919bd66cd427e088886ca8dffd024ea589
 
 build:
   noarch: python
@@ -21,7 +21,7 @@ test:
     - echo "make lint happy"
 
 outputs:
-  - name: {{prefix}}{{ name }}_{{ size }}
+  - name: {{ prefix }}{{ name }}_{{ size }}
     script: build.sh  # [unix]
     script: build.bat  # [win]
     requirements:
@@ -43,7 +43,7 @@ outputs:
 about:
   home: https://spacy.io
   license: CC BY-SA 4.0
-  summary: 'Portuguese multi-task CNN trained on the Universal Dependencies and WikiNER corpus.'
+  summary: Portuguese multi-task CNN trained on the Universal Dependencies and WikiNER corpus.
 
   doc_url: https://spacy.io/models/pt
 
